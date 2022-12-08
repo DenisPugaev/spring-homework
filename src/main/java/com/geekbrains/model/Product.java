@@ -13,7 +13,6 @@ public class Product {
         this.cost = cost;
         this.description = description;
     }
-
     public long getId() {
         return id;
     }
@@ -41,11 +40,9 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
-
     @Override
     public String toString() {
         return "[ID" + id + "] " + name + " " + cost + " р";

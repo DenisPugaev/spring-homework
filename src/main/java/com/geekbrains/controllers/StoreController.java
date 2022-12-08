@@ -26,9 +26,9 @@ public class StoreController {
     }
 
     @GetMapping("/products/{id}")
-    public String productInfoById ( Model model, @PathVariable long id){
+    public String productInfoById(Model model, @PathVariable long id) {
         Product product = productRepository.getProductById(id);
-        model.addAttribute("product", product );
+        model.addAttribute("product", product);
         return "ProductInfo";
     }
 
