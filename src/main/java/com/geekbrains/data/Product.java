@@ -1,4 +1,4 @@
-package com.geekbrains.model;
+package com.geekbrains.data;
 
 public class Product {
     private long id;

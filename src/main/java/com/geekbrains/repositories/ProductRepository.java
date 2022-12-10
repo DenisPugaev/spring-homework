@@ -1,6 +1,6 @@
 package com.geekbrains.repositories;
 
-import com.geekbrains.model.Product;
+import com.geekbrains.data.Product;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
@@ -30,8 +30,11 @@ public class ProductRepository {
         return Collections.unmodifiableList(productList);
     }
 
-    public Product getProductById(long id) {
+    public Product getProductById(Long id) {
         return productList.stream().filter(product -> product.getId() == id).findFirst().orElse(null);
+    }
+    public void  deleteById(Long id){
+        productList.removeIf(p -> p.getId()==id);
     }
 
 }
