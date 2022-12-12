@@ -2,35 +2,45 @@ package com.geekbrains.controllers;
 
 import com.geekbrains.data.Product;
 import com.geekbrains.servises.ProductService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
-@Controller
+
+
+@RestController
 public class ProductController {
     private final ProductService productService;
 
+    @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @GetMapping("/products")
+    @GetMapping( "/products")
     public List<Product> getAllProduct() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/products/delete/{id}")
-    public void deleteProductById(@PathVariable Long id) {
+    @DeleteMapping("/products/{id}")
+    public void deleteProductById(@PathVariable("id") Long id) {
         productService.deleteProduct(id);
     }
 
-    @GetMapping("/products/change_cost")
-    public void changeCost(@RequestParam Long id, @RequestParam Integer delta) {
+    @PutMapping("/products")
+    public void changeCost(@RequestParam("productId") Long id, @RequestParam("delta") Integer delta) {
         productService.changeCost(id, delta);
     }
+
+//    @PostMapping("/products")
+//    public void addProduct(@RequestParam("productId")Long id,
+//                           @RequestParam("name")String name,
+//                           @RequestParam("cost") Double cost,
+//                           @RequestParam("description")String description){
+//        productService.addProduct(id,name,cost,description);
+//
+//    }
 }

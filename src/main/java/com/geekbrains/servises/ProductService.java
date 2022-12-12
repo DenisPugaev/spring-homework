@@ -33,4 +33,8 @@ public class ProductService {
     }
 
 
+    public void addProduct(Long id, String name, Double cost, String description) {
+        Product newProduct = new Product(id,name,cost,description);
+        productRepository.addProduct(newProduct);
+    }
 }
