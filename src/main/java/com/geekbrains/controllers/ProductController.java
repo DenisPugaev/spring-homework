@@ -35,12 +35,12 @@ public class ProductController {
         productService.changeCost(id, delta);
     }
 
-//    @PostMapping("/products")
-//    public void addProduct(@RequestParam("productId")Long id,
-//                           @RequestParam("name")String name,
-//                           @RequestParam("cost") Double cost,
-//                           @RequestParam("description")String description){
-//        productService.addProduct(id,name,cost,description);
-//
-//    }
+    @PostMapping("/products")
+    public void addProduct(@RequestParam("productId")Long id,
+                           @RequestParam("name")String name,
+                           @RequestParam("cost") Double cost,
+                           @RequestParam("description")String description){
+        productService.addProduct(id,name,cost,description);
+
+    }
 }

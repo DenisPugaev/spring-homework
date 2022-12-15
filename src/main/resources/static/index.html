@@ -27,25 +27,28 @@
         <tr ng-repeat="p in ProductList">
             <td>{{p.id}}</td>
             <td>{{p.name}}</td>
-            <td  align="center" width="17%">
+            <td align="center" width="17%">
                 <button class="btn btn-primary" ng-click="changeCost(p.id, -50)">-</button>
                 {{p.cost}}
                 <button class="btn btn-primary" ng-click="changeCost(p.id, 50)">+</button>
             </td>
             <td>
-                <button  class="btn btn-danger" ng-click="deleteProductById(p.id)" >Удалить</button>
+                <button class="btn btn-danger" ng-click="deleteProductById(p.id)">Удалить</button>
             </td>
-            <td ><i>{{p.description}}</i></td>
+            <td><i>{{p.description}}</i></td>
         </tr>
         </tbody>
     </table>
-<!--    <form action="addProduct" method="POST">-->
-<!--        <input name="ID" value="">-->
-<!--        <input name="NAME" value="">-->
-<!--        <input name="COST" value="">-->
-<!--        <input name="Description" value="">-->
-<!--        <button class="btn btn-primary" ng-click="addProduct(ID,NAME,COST,Description)">Добавить</button>-->
-<!--    </form>-->
+
+    <h3>Добавление нового продукта</h3>
+    <form action="addProduct" method="post">
+        Id: <input type="text" field="{{productId}}"/>
+        Name: <input type="text" field="{{name}}"/>
+        Cost: <input type="text" field="{{cost}}"/>
+        Description: <input type="text" field="{{description}}"/>
+        <button class="btn btn-primary" ng-click="addProduct">Добавить</button>
+
+    </form>
 
 </div>
 

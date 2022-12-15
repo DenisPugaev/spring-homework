@@ -40,22 +40,22 @@ angular.module('store', []).controller('indexController', function ($scope, $htt
         });
     }
 
-    // $scope.addProduct = function (productId,name,cost,description){
-    //     $http({
-    //         url: contextPath + '/products',
-    //         method: 'POST',
-    //         params: {
-    //             productId: productId,
-    //             name: name,
-    //             cost:cost,
-    //             description: description
-    //         }
-    //     }).then(function (response) {
-    //         $scope.loadProducts();
-    //
-    //     });
-    //
-    // }
+    $scope.addProduct = function (productId,name,cost,description){
+        $http({
+            url: contextPath + '/products',
+            method: 'POST',
+            params: {
+                productId: productId,
+                name: name,
+                cost:cost,
+                description: description
+            }
+        }).then(function (response) {
+            $scope.loadProducts();
+
+        });
+
+    }
 
     $scope.loadProducts();
 });
