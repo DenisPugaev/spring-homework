@@ -1,11 +1,28 @@
-package com.geekbrains.model;
+package com.geekbrains.data;
 
+
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name = "products")
 public class Product {
-    private long id;
-    private String name;
-    private double cost;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "cost")
+    private double cost;
+    @Column(name = "description")
     private String description;
+
+    public Product() {
+    }
 
     public Product(long id, String name, double cost, String description) {
         this.id = id;
