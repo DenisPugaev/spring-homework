@@ -52,20 +52,6 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
-    @Override
-    public void updateCostById(Product product) {
-       try (Session session = factory.getSession()) {
-            session.beginTransaction();
-           session.createQuery("FROM Product p ORDER BY p.id",Product.class);
-           session.saveOrUpdate(product);
-
-
-
-            session.getTransaction().commit();
-
-
-        }
-    }
 
     @Override
     public void save(Product product) {

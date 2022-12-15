@@ -40,9 +40,8 @@ public class ProductService {
     public void changeCost(Long id, Integer delta) {
         Product product = productDao.findById(id) ;
         Double newCost = product.getCost()+delta;
-        log.info("Product-"+product+" "+ "newCost = "+newCost);
         product.setCost(newCost);
-        productDao.updateCostById(product);
+        productDao.save(product);
     }
 
 
